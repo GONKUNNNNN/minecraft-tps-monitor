@@ -244,6 +244,30 @@ ls -la public/assets/ | grep tps
 
 #### Issue: Migration Fails
 
+**Foreign key constraint error (errno: 150)**:
+```bash
+# 1. Drop existing table (WARNING: This will lose data)
+php artisan tinker
+>>> Schema::dropIfExists('tps_monitor');
+>>> exit
+
+# 2. Re-run the migration
+php artisan migrate --path=database/migrations/2024_01_01_000000_create_tps_monitor_table.php
+```
+
+**Table already exists error**:
+```bash
+# 1. Check migration status
+php artisan migrate:status
+
+# 2. Rollback specific migration
+php artisan migrate:rollback --path=database/migrations/2024_01_01_000000_create_tps_monitor_table.php
+
+# 3. Re-run the migration
+php artisan migrate --path=database/migrations/2024_01_01_000000_create_tps_monitor_table.php
+```
+
+**General database issues**:
 ```bash
 # Check database connection
 php artisan tinker
@@ -251,7 +275,6 @@ php artisan tinker
 
 # If connection works, try:
 php artisan migrate:refresh
-php artisan migrate --path=database/migrations/2024_01_01_000000_create_tps_monitor_table.php
 ```
 
 #### Issue: Assets Not Building

@@ -58,7 +58,7 @@ rm -rf main.zip minecraft-tps-monitor-main
 # composer依存関係をインストール/更新
 composer install --no-dev --optimize-autoloader
 
-# 問題が発生した場合は以下を試してください：
+# 問題が発生した場合は以下を試してくださ：
 composer update --no-dev --optimize-autoloader
 ```
 

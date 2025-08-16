@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ServerContext } from '@/state/server';
 import { httpErrorToHuman } from '@/api/http';
 import { useStoreState } from 'easy-peasy';
-import TitleBar from '@/components/server/TitleBar';
+import TitleBar from '@/components/elements/TitleBar';
 import FlashMessageRender from '@/components/FlashMessageRender';
 import Spinner from '@/components/elements/Spinner';
 import { Line } from 'react-chartjs-2';
@@ -59,8 +59,8 @@ const TpsMonitor = () => {
     const [timeRange, setTimeRange] = useState(24); // hours
     const [autoRefresh, setAutoRefresh] = useState(true);
     
-    const uuid = useStoreState((state: any) => state.server.data!.uuid);
-    const name = useStoreState((state: any) => state.server.data!.name);
+    const uuid = useStoreState((state) => state.server.data!.uuid);
+    const name = useStoreState((state) => state.server.data!.name);
 
     const loadTpsData = async () => {
         try {
@@ -185,11 +185,11 @@ const TpsMonitor = () => {
         );
     }
 
+    const server = useStoreState(state => state.server.data!);
+
     return (
-        <ServerContext.Consumer>
-            {() => (
-                <>
-                    <TitleBar title={'TPS Monitor'} />
+        <>
+            <TitleBar title={'TPS Monitor'} />
                     <FlashMessageRender byKey={'server:tps'} />
                     
                     {error && (
@@ -373,9 +373,7 @@ const TpsMonitor = () => {
                             )}
                         </div>
                     </div>
-                </>
-            )}
-        </ServerContext.Consumer>
+        </>
     );
 };
 

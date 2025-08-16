@@ -36,8 +36,11 @@ tar -czf pterodactyl_backup_$(date +%Y%m%d_%H%M%S).tar.gz /var/www/pterodactyl
 # pterodactylディレクトリに移動
 cd /var/www/pterodactyl
 
-# アドオンをダウンロード（実際のダウンロードURLに置き換えてください）
-wget https://github.com/your-repo/minecraft-tps-monitor/archive/main.zip
+# アドオンをダウンロード
+# 注意: 以下のURLは例です。実際のリリースURLまたはzipファイルのパスに置き換えてください
+# wget https://github.com/GONKUNNNNN/minecraft-tps-monitor/archive/main.zip
+# または、ローカルファイルからコピーする場合：
+# cp /path/to/minecraft-tps-monitor.zip .
 
 # アドオンを展開
 unzip main.zip
@@ -178,7 +181,8 @@ sudo systemctl restart pteroq
 
 ```bash
 # インストールスクリプトをダウンロードして実行
-wget https://raw.githubusercontent.com/your-repo/minecraft-tps-monitor/main/install.sh
+# インストールスクリプトをダウンロード（実際のURLに置き換えてください）
+# wget https://raw.githubusercontent.com/GONKUNNNNN/minecraft-tps-monitor/main/install.sh
 chmod +x install.sh
 sudo ./install.sh
 ```
@@ -306,7 +310,7 @@ APP_DEBUG=true
 問題が発生した場合：
 
 1. READMEの[トラブルシューティングセクション](README.md#troubleshooting)を確認
-2. [既存の問題](https://github.com/your-repo/minecraft-tps-monitor/issues)を検索
+2. [既存の問題](https://github.com/GONKUNNNNN/minecraft-tps-monitor/issues)を検索（リポジトリが利用可能な場合）
 3. 以下の情報を含めて新しい問題を作成：
    - Pterodactylのバージョン
    - PHPバージョン

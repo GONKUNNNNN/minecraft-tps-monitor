@@ -36,8 +36,11 @@ tar -czf pterodactyl_backup_$(date +%Y%m%d_%H%M%S).tar.gz /var/www/pterodactyl
 # Navigate to pterodactyl directory
 cd /var/www/pterodactyl
 
-# Download the addon (replace with actual download URL)
-wget https://github.com/your-repo/minecraft-tps-monitor/archive/main.zip
+# Download the addon
+# Note: Replace with actual release URL or zip file path
+# wget https://github.com/GONKUNNNNN/minecraft-tps-monitor/archive/main.zip
+# Or copy from local file:
+# cp /path/to/minecraft-tps-monitor.zip .
 
 # Extract the addon
 unzip main.zip
@@ -178,8 +181,8 @@ sudo systemctl restart pteroq
 **⚠️ Use at your own risk. Always review scripts before running.**
 
 ```bash
-# Download and run installation script
-wget https://raw.githubusercontent.com/your-repo/minecraft-tps-monitor/main/install.sh
+# Download and run installation script (replace with actual URL)
+# wget https://raw.githubusercontent.com/GONKUNNNNN/minecraft-tps-monitor/main/install.sh
 chmod +x install.sh
 sudo ./install.sh
 ```
@@ -307,7 +310,7 @@ APP_DEBUG=true
 If you encounter issues:
 
 1. Check the [troubleshooting section](README.md#troubleshooting) in README
-2. Search [existing issues](https://github.com/your-repo/minecraft-tps-monitor/issues)
+2. Search [existing issues](https://github.com/GONKUNNNNN/minecraft-tps-monitor/issues) (if repository is available)
 3. Create a new issue with:
    - Your Pterodactyl version
    - PHP version

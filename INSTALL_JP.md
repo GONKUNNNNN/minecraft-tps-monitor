@@ -244,6 +244,30 @@ ls -la public/assets/ | grep tps
 
 #### 問題: マイグレーションが失敗する
 
+**外部キー制約エラー (errno: 150)**:
+```bash
+# 1. 既存のテーブルを削除（注意：データが失われます）
+php artisan tinker
+>>> Schema::dropIfExists('tps_monitor');
+>>> exit
+
+# 2. マイグレーションを再実行
+php artisan migrate --path=database/migrations/2024_01_01_000000_create_tps_monitor_table.php
+```
+
+**テーブルが既に存在するエラー**:
+```bash
+# 1. マイグレーション状態を確認
+php artisan migrate:status
+
+# 2. 特定のマイグレーションをロールバック
+php artisan migrate:rollback --path=database/migrations/2024_01_01_000000_create_tps_monitor_table.php
+
+# 3. 再度マイグレーションを実行
+php artisan migrate --path=database/migrations/2024_01_01_000000_create_tps_monitor_table.php
+```
+
+**一般的なデータベース問題**:
 ```bash
 # データベース接続を確認
 php artisan tinker
@@ -251,7 +275,6 @@ php artisan tinker
 
 # 接続が正常な場合、以下を試行：
 php artisan migrate:refresh
-php artisan migrate --path=database/migrations/2024_01_01_000000_create_tps_monitor_table.php
 ```
 
 #### 問題: アセットがビルドされない
